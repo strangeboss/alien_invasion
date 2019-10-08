@@ -1,0 +1,45 @@
+1，py2exe打包出现错误：py2exe版本0.9.2.2,python3.7
+	
+F:\alien_invasion\pyexetest>python mysetup.py py2exe
+running py2exe
+Traceback (most recent call last):
+  File "mysetup.py", line 6, in <module>
+    setup(console=["hello_world.py"])
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\distutils\core.py", line 148, in setup
+    dist.run_commands()
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\distutils\dist.py", line 966, in run_commands
+    self.run_command(cmd)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\distutils\dist.py", line 985, in run_command
+    cmd_obj.run()
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\py2exe\distutils_buildexe.py", line 188, in run
+    self._run()
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\py2exe\distutils_buildexe.py", line 267, in _run
+    builder.analyze()
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\py2exe\runtime.py", line 160, in analyze
+    self.mf.import_hook(modname)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\py2exe\mf3.py", line 120, in import_hook
+    module = self._gcd_import(name)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\py2exe\mf3.py", line 274, in _gcd_import
+    return self._find_and_load(name)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\py2exe\mf3.py", line 357, in _find_and_load
+    self._scan_code(module.__code__, module)
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\py2exe\mf3.py", line 388, in _scan_code
+    for what, args in self._scan_opcodes(code):
+  File "C:\Users\Administrator\AppData\Local\Programs\Python\Python37\lib\site-packages\py2exe\mf3.py", line 417, in _scan_opcodes
+    yield "store", (names[oparg],)
+IndexError: tuple index out of range
+
+
+问题解决思路：
+
+1，版本问题
+py2exe is a distutils extension which allows to build standalone Windows executable programs (32-bit and 64-bit) from Python scripts; 
+Python 3.3 and later are supported. It can build console executables, 
+windows (GUI) executables, windows services, and DLL/EXE COM servers.
+
+py2exe是一个distutils扩展，允许从Python脚本构建独立的Windows可执行程序(32位和64位);支持Python 3.3及更高版本。它可以构建控制台可执行程序、windows (GUI)可执行程序、windows服务和DLL/EXE COM服务器。
+
+2，是否缺少文件
+
+3，仔细阅读原文示例
+
